@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Old Hickory Lake & Tims Ford Lake | Lakefront Market Trends | Jason Kaczmarski Team</title>
+<title>Center Hill Lake & Tims Ford Lake | Lakefront Market Trends | Jason Kaczmarski Team</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
@@ -16,9 +16,10 @@
   --blue-dark: #163d82;
   --blue-mid: #2d57a5;
   --blue-light: #eef3ff;
-  --teal: #0e7490;
-  --teal-light: #ecfeff;
-  --teal-dark: #0c4a6e;
+  --jordan: #1f4fa3;
+  --teal: #1e6b3c;
+  --teal-light: #e8f5ee;
+  --teal-dark: #14532d;
   --gold: #f0b429;
   --gold-light: #fef9ec;
   --text: #1a1a2e;
@@ -26,11 +27,16 @@
   --border: #e2e8f0;
   --bg: #f7f8fc;
   --white: #ffffff;
-  /* Winchester accent */
-  --forest: #166534;
-  --forest-light: #f0fdf4;
-  --forest-mid: #16a34a;
-  --forest-dark: #14532d;
+  /* Center Hill Lake accent — emerald green */
+  --chl: #1e6b3c;
+  --chl-light: #e8f5ee;
+  --chl-dark: #14532d;
+  --chl-mid: #16a34a;
+  /* Tims Ford Lake accent — navy blue */
+  --tfl: #1a3d6e;
+  --tfl-light: #e8eef5;
+  --tfl-dark: #0f2544;
+  --tfl-mid: #2563eb;
   --amber: #92400e;
   --amber-light: #fef3c7;
 }
@@ -52,25 +58,26 @@ body {
 .header img { max-width: 200px; }
 
 .hero {
-  background: linear-gradient(135deg, #0c4a6e 0%, #164e63 50%, #0e7490 100%);
-  color: white;
+  background: #ffffff;
+  color: var(--text);
   padding: 52px 20px 48px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3Cpath d='M0 55 Q20 35 40 55 Q60 75 80 55' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3Cpath d='M0 25 Q20 5 40 25 Q60 45 80 25' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%231e6b3c' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3Cpath d='M0 55 Q20 35 40 55 Q60 75 80 55' stroke='%232563eb' stroke-width='0.4' fill='none' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 .hero-eyebrow {
   font-size: 11px;
   letter-spacing: .2em;
   text-transform: uppercase;
-  opacity: .7;
+  color: var(--muted);
   margin-bottom: 12px;
   position: relative;
 }
@@ -81,11 +88,12 @@ body {
   line-height: 1.1;
   margin-bottom: 10px;
   position: relative;
+  color: var(--text);
 }
-.hero h1 em { font-style: italic; color: var(--gold); }
+.hero h1 em { font-style: italic; color: var(--chl); }
 .hero-sub {
   font-size: 15px;
-  opacity: .8;
+  color: var(--muted);
   max-width: 620px;
   margin: 0 auto 20px;
   line-height: 1.6;
@@ -99,23 +107,24 @@ body {
   position: relative;
 }
 .hood-tag {
-  background: rgba(255,255,255,.15);
-  border: 1px solid rgba(255,255,255,.25);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 99px;
   padding: 5px 14px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .04em;
+  color: var(--muted);
 }
-.hood-tag.dock-tag {
-  background: rgba(240,180,41,.25);
-  border-color: rgba(240,180,41,.5);
-  color: var(--gold);
+.hood-tag.chl-tag {
+  background: var(--chl-light);
+  border-color: var(--chl-mid);
+  color: var(--chl);
 }
-.hood-tag.winch-tag {
-  background: rgba(22,163,74,.25);
-  border-color: rgba(22,163,74,.5);
-  color: #86efac;
+.hood-tag.tfl-tag {
+  background: var(--tfl-light);
+  border-color: var(--tfl-mid);
+  color: var(--tfl);
 }
 
 /* STAT STRIP */
@@ -147,11 +156,11 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 26px;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--chl);
   line-height: 1;
   margin-bottom: 4px;
 }
-.stat-value.green { color: var(--forest-mid); }
+.stat-value.tfl { color: var(--tfl-mid); }
 .stat-change { font-size: 12px; font-weight: 600; color: #16a34a; }
 .stat-note { font-size: 11px; color: var(--muted); }
 
@@ -184,13 +193,13 @@ body {
   background: var(--white);
   border-radius: 12px;
   padding: 18px 24px;
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--chl);
   box-shadow: 0 2px 12px rgba(0,0,0,.06);
   font-size: 14px;
   color: var(--muted);
   line-height: 1.7;
 }
-.context-inner.green { border-left-color: var(--forest-mid); }
+.context-inner.tfl { border-left-color: var(--tfl-mid); }
 .context-inner strong { color: var(--text); }
 
 /* MAIN */
@@ -249,12 +258,10 @@ body {
   transition: color .15s, border-color .15s;
   font-family: 'DM Sans', sans-serif;
 }
-.tab-btn:hover { color: var(--teal); }
-.tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
-
-/* Winchester tab variant */
-.tab-btn.winch-tab:hover { color: var(--forest-mid); }
-.tab-btn.winch-tab.active { color: var(--forest-mid); border-bottom-color: var(--forest-mid); }
+.tab-btn:hover { color: var(--chl); }
+.tab-btn.active { color: var(--chl); border-bottom-color: var(--chl); }
+.tab-btn.tfl-tab:hover { color: var(--tfl-mid); }
+.tab-btn.tfl-tab.active { color: var(--tfl-mid); border-bottom-color: var(--tfl-mid); }
 
 /* COMPARE SECTION */
 .compare-toggle {
@@ -273,10 +280,10 @@ body {
   transition: all .2s;
   font-family: 'DM Sans', sans-serif;
 }
-.toggle-btn.lake { background: var(--teal-light); color: var(--teal); border-color: var(--teal); }
+.toggle-btn.chl { background: var(--chl-light); color: var(--chl); border-color: var(--chl); }
 .toggle-btn.jordan { background: var(--blue-light); color: var(--blue); border-color: var(--blue); }
+.toggle-btn.tfl { background: var(--tfl-light); color: var(--tfl); border-color: var(--tfl-mid); }
 .toggle-btn.both { background: #f0f9ec; color: #16a34a; border-color: #16a34a; }
-.toggle-btn.winch { background: var(--forest-light); color: var(--forest); border-color: var(--forest-mid); }
 .toggle-btn.all { background: #fef9ec; color: #92400e; border-color: var(--gold); }
 .toggle-btn.inactive { background: var(--bg); color: var(--muted); border-color: var(--border); }
 
@@ -293,13 +300,13 @@ body {
   padding: 16px 18px;
   border: 1px solid var(--border);
 }
-.city-card.highlight {
-  background: var(--teal-light);
-  border-color: var(--teal);
+.city-card.highlight-chl {
+  background: var(--chl-light);
+  border-color: var(--chl);
 }
-.city-card.highlight-green {
-  background: var(--forest-light);
-  border-color: var(--forest-mid);
+.city-card.highlight-tfl {
+  background: var(--tfl-light);
+  border-color: var(--tfl-mid);
 }
 .city-name {
   font-size: 11px;
@@ -309,8 +316,8 @@ body {
   color: var(--muted);
   margin-bottom: 8px;
 }
-.city-card.highlight .city-name { color: var(--teal); }
-.city-card.highlight-green .city-name { color: var(--forest); }
+.city-card.highlight-chl .city-name { color: var(--chl); }
+.city-card.highlight-tfl .city-name { color: var(--tfl); }
 .city-stat { margin-bottom: 6px; }
 .city-stat .cs-label { font-size: 11px; color: var(--muted); margin-bottom: 1px; }
 .city-stat .cs-val {
@@ -324,7 +331,7 @@ body {
 
 /* BUDGET CALLOUT */
 .budget-card {
-  background: linear-gradient(135deg, var(--teal-light), #f0fdf4);
+  background: linear-gradient(135deg, var(--chl-light), #f0fdf4);
   border: 1px solid #a7f3d0;
   border-radius: 12px;
   padding: 20px 24px;
@@ -333,7 +340,7 @@ body {
 .budget-card h4 {
   font-family: 'Playfair Display', serif;
   font-size: 16px;
-  color: var(--teal-dark);
+  color: var(--chl-dark);
   margin-bottom: 8px;
 }
 .budget-card p { font-size: 13px; color: #0f4c5c; line-height: 1.7; }
@@ -376,10 +383,10 @@ body {
   transition: all .2s;
   font-family: 'DM Sans', sans-serif;
 }
-.year-tab:hover { color: var(--teal); background: var(--teal-light); }
-.year-tab.active { color: var(--teal); border-bottom-color: var(--teal); background: var(--teal-light); }
-.year-tab.winch-tab:hover { color: var(--forest-mid); background: var(--forest-light); }
-.year-tab.winch-tab.active { color: var(--forest-mid); border-bottom-color: var(--forest-mid); background: var(--forest-light); }
+.year-tab:hover { color: var(--chl); background: var(--chl-light); }
+.year-tab.active { color: var(--chl); border-bottom-color: var(--chl); background: var(--chl-light); }
+.year-tab.tfl-tab:hover { color: var(--tfl-mid); background: var(--tfl-light); }
+.year-tab.tfl-tab.active { color: var(--tfl-mid); border-bottom-color: var(--tfl-mid); background: var(--tfl-light); }
 .year-tab .badge {
   display: inline-block;
   font-size: 9px;
@@ -434,35 +441,36 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--chl);
   line-height: 1;
 }
-.year-stat-box .ys-value.green { color: var(--forest-mid); }
+.year-stat-box .ys-value.tfl { color: var(--tfl-mid); }
 .year-stat-box .ys-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
-.jordan-compare-box {
-  background: var(--blue-light);
+.compare-box {
+  background: var(--tfl-light);
   border: 1px solid #bfdbfe;
   border-radius: 10px;
   padding: 14px 16px;
   margin-bottom: 14px;
 }
-.jordan-compare-box .jc-label {
+.compare-box.tfl { background: var(--tfl-light); border-color: #bfdbfe; }
+.compare-box .jc-label {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--blue);
+  color: var(--tfl);
   margin-bottom: 8px;
 }
-.jordan-compare-box .jc-row {
+.compare-box .jc-row {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
   margin-bottom: 4px;
   color: var(--muted);
 }
-.jordan-compare-box .jc-row strong { color: var(--text); }
+.compare-box .jc-row strong { color: var(--text); }
 
 .year-context {
   font-size: 14px;
@@ -474,9 +482,13 @@ body {
   border-radius: 0 8px 8px 0;
   margin-bottom: 16px;
 }
-.year-context.green {
-  background: var(--forest-light);
-  border-left-color: var(--forest-mid);
+.year-context.chl-ctx {
+  background: var(--chl-light);
+  border-left-color: var(--chl);
+}
+.year-context.tfl-ctx {
+  background: var(--tfl-light);
+  border-left-color: var(--tfl-mid);
 }
 .year-context strong { color: var(--text); }
 
@@ -485,7 +497,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
-  background: var(--teal);
+  background: var(--chl);
   color: white;
   border-radius: 8px;
   font-size: 13px;
@@ -493,154 +505,119 @@ body {
   text-decoration: none;
   transition: background .2s, transform .15s;
 }
-.view-report-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
-.view-report-btn.green { background: var(--forest); }
-.view-report-btn.green:hover { background: var(--forest-dark); }
+.view-report-btn:hover { background: var(--chl-dark); transform: translateY(-1px); }
+.view-report-btn.tfl { background: var(--tfl); }
+.view-report-btn.tfl:hover { background: var(--tfl-dark); }
 .view-report-btn svg { width: 14px; height: 14px; }
 
-/* ── WINCHESTER ACTIVE LISTINGS ── */
-.active-listings-section {
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 2px 20px rgba(0,0,0,.07);
-  overflow: hidden;
-  border-top: 4px solid var(--forest-mid);
-}
-.active-listings-header {
-  padding: 22px 28px 16px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.active-listings-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-.active-listings-header p { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.active-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #dcfce7;
-  color: var(--forest);
-  border: 1px solid #86efac;
-  border-radius: 99px;
-  padding: 5px 12px;
-  font-size: 12px;
-  font-weight: 700;
-}
-.active-badge::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  background: var(--forest-mid);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .4; }
-}
-
-.listings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  padding: 24px 28px;
-}
-.listing-card {
-  background: var(--bg);
-  border-radius: 12px;
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  transition: box-shadow .2s, transform .15s;
-}
-.listing-card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,.1);
-  transform: translateY(-2px);
-}
-.listing-card.featured {
-  background: var(--forest-light);
-  border-color: var(--forest-mid);
-}
-.listing-address {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-.listing-sub {
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-.listing-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--forest);
-  margin-bottom: 10px;
-}
-.listing-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-.listing-pill {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 3px 8px;
-  font-size: 11px;
-  color: var(--muted);
-  font-weight: 600;
-}
-.listing-pill.dom {
-  background: var(--amber-light);
-  border-color: #fcd34d;
-  color: var(--amber);
-}
-.listing-ppsf {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.listings-summary {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--border);
-}
-.ls-item {
-  padding: 16px 20px;
-  border-right: 1px solid var(--border);
+/* ── TFL SECTION BANNER ── */
+.tfl-section-banner {
+  background: linear-gradient(135deg, #0f2544 0%, #1a3d6e 60%, #1e4f8c 100%);
+  color: white;
+  padding: 36px 20px 32px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.ls-item:last-child { border-right: none; }
-.ls-label {
+.tfl-section-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L30 55 M5 30 L55 30' stroke='%23ffffff' stroke-width='0.3' opacity='0.07'/%3E%3Ccircle cx='30' cy='30' r='20' stroke='%23ffffff' stroke-width='0.3' fill='none' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.tfl-section-banner .wb-eyebrow {
   font-size: 10px;
-  font-weight: 600;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--muted);
-  margin-bottom: 4px;
+  opacity: .7;
+  margin-bottom: 8px;
+  position: relative;
 }
-.ls-value {
+.tfl-section-banner h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--forest);
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  position: relative;
 }
+.tfl-section-banner h2 em { font-style: italic; color: #93c5fd; }
+.tfl-section-banner p {
+  font-size: 14px;
+  opacity: .8;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* TFL STAT STRIP */
+.tfl-stat-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  border-top: 3px solid var(--tfl-mid);
+}
+.tfl-stat-strip .stat-value { color: var(--tfl-mid); }
+.tfl-stat-strip .stat-change { color: var(--tfl-mid); }
+
+/* CHL SECTION BANNER */
+.chl-section-banner {
+  background: #ffffff;
+  color: var(--text);
+  padding: 36px 20px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid var(--chl-mid);
+  border-bottom: 1px solid var(--border);
+}
+.chl-section-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%231e6b3c' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.chl-section-banner .wb-eyebrow {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+  position: relative;
+}
+.chl-section-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  position: relative;
+  color: var(--text);
+}
+.chl-section-banner h2 em { font-style: italic; color: var(--chl); }
+.chl-section-banner p {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* CHL STAT STRIP */
+.chl-stat-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  border-top: 3px solid var(--chl-mid);
+}
+.chl-stat-strip .stat-value { color: var(--chl-mid); }
+.chl-stat-strip .stat-change { color: var(--chl-mid); }
 
 /* CTA */
 .cta-card {
-  background: linear-gradient(135deg, #0c4a6e 0%, #0e7490 100%);
+  background: linear-gradient(135deg, #0c2a1a 0%, #1e4d2b 100%);
   color: white;
   border-radius: 16px;
   padding: 40px;
@@ -649,7 +626,7 @@ body {
   overflow: hidden;
 }
 .cta-card::before {
-  content: '⚓';
+  content: '🌲';
   position: absolute;
   font-size: 180px;
   opacity: .04;
@@ -674,7 +651,7 @@ body {
 .cta-btn {
   display: inline-block;
   background: white;
-  color: var(--teal-dark);
+  color: var(--chl-dark);
   padding: 14px 32px;
   border-radius: 10px;
   font-weight: 700;
@@ -759,56 +736,6 @@ body {
 .tool-nav-link:hover { color: white; background: rgba(255,255,255,.08); }
 .tool-nav-link.active { color: white; font-weight: 600; }
 
-/* Winchester section header */
-.winch-section-banner {
-  background: linear-gradient(135deg, #14532d 0%, #166534 60%, #15803d 100%);
-  color: white;
-  padding: 36px 20px 32px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.winch-section-banner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L30 55 M5 30 L55 30' stroke='%23ffffff' stroke-width='0.3' opacity='0.07'/%3E%3Ccircle cx='30' cy='30' r='20' stroke='%23ffffff' stroke-width='0.3' fill='none' opacity='0.05'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.winch-section-banner .wb-eyebrow {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  opacity: .7;
-  margin-bottom: 8px;
-  position: relative;
-}
-.winch-section-banner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 4vw, 36px);
-  font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 8px;
-  position: relative;
-}
-.winch-section-banner h2 em { font-style: italic; color: #86efac; }
-.winch-section-banner p {
-  font-size: 14px;
-  opacity: .8;
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.6;
-  position: relative;
-}
-
-/* Winchester stat strip */
-.winch-stat-strip {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  border-top: 3px solid var(--forest-mid);
-}
-.winch-stat-strip .stat-value { color: var(--forest-mid); }
-
 @media (max-width: 860px) {
   .city-grid { grid-template-columns: 1fr 1fr; }
   .listings-grid { grid-template-columns: 1fr; }
@@ -841,65 +768,74 @@ body {
       All Reports
     </a>
     <span class="tool-nav-divider">|</span>
-    <a class="tool-nav-link" href="https://jasonknashville.github.io/Jordan-Elementary-MarketUpdate-Mar2026/">
-      🏫 Jordan Elementary Zone
+    <a class="tool-nav-link active" href="#">
+      🌊 Lake Market Trends
     </a>
-    <a class="tool-nav-link active" href="https://jasonknashville.github.io/Jordan-v-Lakefront-with-Dock/">
-      ⚓ Lakefront Market
+    <a class="tool-nav-link" href="https://jasonknashville.github.io/Jordan-v-Lakefront-with-Dock/">
+      📊 Full Research Report
     </a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Greater Nashville Area · Old Hickory Lake &amp; Tims Ford Lake Lakefront Market Reports</div>
-  <h1>Smith Luxury/Vacation Home<br><em>Quackulators</em></h1>
-  <p class="hero-sub">Seven years of closed lakefront sales across Old Hickory Lake (Nashville corridor) and Tims Ford Lake (Winchester, TN) — including Hopkins Point and Twin Creeks — so you can compare both opportunities side by side.</p>
+  <div class="hero-eyebrow">Greater Nashville Area · Center Hill Lake &amp; Tims Ford Lake — Vacation &amp; Lakefront Market Reports</div>
+  <h1>Smith Luxury/Vacation Home<br><em>Market Trends</em></h1>
+  <p class="hero-sub">Six years of closed sales across Center Hill Lake (Smithville corridor) and Tims Ford Lake (Winchester, TN) — including Hopkins Point, Twin Creeks, and all major lakefront subdivisions — benchmarked side by side.</p>
   <div class="hood-tags">
-    <span class="hood-tag">Hendersonville</span>
-    <span class="hood-tag">Gallatin</span>
-    <span class="hood-tag">Old Hickory</span>
-    <span class="hood-tag">Lebanon</span>
-    <span class="hood-tag">Mount Juliet</span>
-    <span class="hood-tag dock-tag">⚓ Old Hickory Lake</span>
-    <span class="hood-tag winch-tag">🌲 Tims Ford Lake — Winchester</span>
+    <span class="hood-tag chl-tag">🌲 Center Hill Lake — Smithville</span>
+    <span class="hood-tag">Smithville</span>
+    <span class="hood-tag">DeKalb County</span>
+    <span class="hood-tag tfl-tag">🦅 Tims Ford Lake — Winchester</span>
+    <span class="hood-tag">Winchester</span>
+    <span class="hood-tag">Franklin County</span>
   </div>
 </div>
 
-<!-- OLD HICKORY STAT STRIP -->
-<div class="stat-strip">
+<!-- ══════════════════════════════════════════════ -->
+<!--  CENTER HILL LAKE SECTION                      -->
+<!-- ══════════════════════════════════════════════ -->
+
+<div class="chl-section-banner">
+  <div class="wb-eyebrow">Smithville, Tennessee · DeKalb County · Center Hill Lake</div>
+  <h2>Center Hill Lake<br><em>Market Data</em></h2>
+  <p>Six years of closed residential sales (2020–2025) across Center Hill Lake's top lakefront subdivisions — from Floating Mill Village to Hurricane Pointe — benchmarked year by year.</p>
+</div>
+
+<!-- CHL STAT STRIP -->
+<div class="chl-stat-strip stat-strip">
   <div class="stat-strip-inner">
     <div class="stat-item">
-      <div class="stat-label">Old Hickory Total Sales (2019–2025)</div>
-      <div class="stat-value">511</div>
-      <div class="stat-note">Closed transactions</div>
+      <div class="stat-label">CHL Total Sales (2020–2025)</div>
+      <div class="stat-value">~200</div>
+      <div class="stat-note">Closed residential transactions</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">OHL Median Price Growth</div>
-      <div class="stat-value">+66%</div>
-      <div class="stat-change">↑ $740K → $1.229M (2025)</div>
+      <div class="stat-label">CHL Median Price Growth</div>
+      <div class="stat-value">+81%</div>
+      <div class="stat-change">↑ $346K → $628K (2025)</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">OHL Price/SF Growth</div>
-      <div class="stat-value">+64%</div>
-      <div class="stat-change">↑ $226 → $370/sf (2025)</div>
+      <div class="stat-label">CHL Price/SF Growth</div>
+      <div class="stat-value">+90%</div>
+      <div class="stat-change">↑ $148 → $280/sf (2025)</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">OHL 2025 Median Price</div>
-      <div class="stat-value">$1.23M</div>
-      <div class="stat-note">75 closed sales</div>
+      <div class="stat-label">CHL 2025 Median Price</div>
+      <div class="stat-value">$628K</div>
+      <div class="stat-note">Median DOM: 38 days</div>
     </div>
   </div>
 </div>
 
-<!-- OLD HICKORY CONTEXT BANNER -->
+<!-- CHL CONTEXT BANNER -->
 <div class="context-banner">
   <div class="context-inner">
-    <strong>A note on the Old Hickory Lake dataset:</strong> All properties include a private boat slip, private dock, or dock permit — the defining criteria for true lakefront ownership on Old Hickory Lake. The market spans five postal cities (Hendersonville, Gallatin, Old Hickory, Lebanon, and Mount Juliet). <strong>The wide price range — from $218K condos to $4.7M estates — creates meaningful separation between averages and medians.</strong> The median is the more reliable benchmark for understanding what a typical lakefront buyer actually pays.
+    <strong>About the Center Hill Lake dataset:</strong> Includes closed single-family residential sales across major CHL lakefront subdivisions including Floating Mill Village, Harbor Pointe, Blue Water Bay, Hurricane Pointe, Casey Cove, Lakeview Mountain Estates, and others. Center Hill Lake (18,220 acres, 415 miles of shoreline) is the largest and deepest clear-water lake in Middle Tennessee, managed by the U.S. Army Corps of Engineers. <strong>The Corps permitting environment is more restrictive than TVA-managed Tims Ford, which is a key differentiator for dock buyers.</strong>
   </div>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN CHART + TABS -->
 <div class="main">
 
   <!-- COMBINED PRICE TRENDS COMPARISON CHART -->
@@ -907,13 +843,13 @@ body {
     <div class="card-header">
       <div>
         <div class="card-title">Price Trends Comparison Chart</div>
-        <div class="card-subtitle">Old Hickory Lakefront · Jordan Elementary Zone · Winchester / Tims Ford Lake · 2019–2025 · Median sale prices shown</div>
+        <div class="card-subtitle">Center Hill Lake · Tims Ford Lake · 2020–2025 · Median sale prices shown</div>
       </div>
     </div>
     <div class="compare-toggle">
-      <button class="toggle-btn lake active" id="tog-lake" onclick="toggleDataset('lake')">🌊 Lakefront Only</button>
+      <button class="toggle-btn chl active" id="tog-chl" onclick="toggleDataset('chl')">🌲 Center Hill Only</button>
       <button class="toggle-btn jordan inactive" id="tog-jordan" onclick="toggleDataset('jordan')">🏫 Jordan Zone Only</button>
-      <button class="toggle-btn winch inactive" id="tog-winch" onclick="toggleDataset('winch')">🌲 Winchester Only</button>
+      <button class="toggle-btn tfl inactive" id="tog-tfl" onclick="toggleDataset('tfl')">🦅 Tims Ford Only</button>
       <button class="toggle-btn all inactive" id="tog-all" onclick="toggleDataset('all')">⚖️ Compare All</button>
     </div>
     <div class="tab-bar" id="mainTabBar">
@@ -926,457 +862,402 @@ body {
       <canvas id="mainChart" height="320"></canvas>
     </div>
     <div style="padding: 0 28px 16px; font-size: 12px; color: var(--muted); line-height: 1.6;">
-      <strong style="color:var(--text);">Note:</strong> Winchester data begins in 2020. "Compare All" shows median prices only for a clean apples-to-apples view across all three markets.
+      <strong style="color:var(--text);">Note:</strong> "Compare All" shows median prices only for a clean apples-to-apples view across all three markets. CHL data begins 2020. TFL premium over CHL has narrowed from ~50% (2020) to ~28% (2025).
     </div>
   </div>
 
-  <!-- OHL BUDGET CALLOUT -->
+  <!-- BUDGET CALLOUT -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">Under $1.5M Buyer: What Does Lakefront Actually Look Like?</div>
-        <div class="card-subtitle">Observations from the data for buyers targeting the sub-$1.5M lakefront market</div>
+        <div class="card-title">Budget Guide: Where Your Dollar Goes Farthest</div>
+        <div class="card-subtitle">CHL vs. TFL by price tier — based on 2025 market data</div>
       </div>
     </div>
     <div style="padding: 20px 28px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
       <div class="budget-card" style="margin: 0;">
-        <h4>🎯 The Budget Is In Play</h4>
-        <p>In 2025, the <strong>median lakefront sale was $1.229M</strong> — well under the $1.5M target. That means roughly half of all lakefront closings fell below that number. However, the average of $1.543M signals significant high-end activity pulling prices up. Sub-$1.5M buyers are competing for real inventory, not the bottom of the barrel.</p>
+        <h4>🎯 $500K–$750K — CHL Wins</h4>
+        <p>Much more selection at CHL — <strong>Blue Water Bay, Hurricane Pointe mid-tier, The Falls at Center Hill</strong>. TFL at this range is mostly Twin Creeks townhomes and smaller homes without premium water access. The 2025 CHL median of $627,500 means you're shopping right at the heart of the market.</p>
       </div>
-      <div class="budget-card" style="margin: 0; background: linear-gradient(135deg, #eff6ff, #e0f2fe); border-color: #bae6fd;">
-        <h4 style="color: #1e40af;">🏫 vs. Jordan Elementary Zone</h4>
-        <p>The Jordan Elementary median hit <strong>$1.64M in 2025</strong> — about $411K above lakefront's median. For a sub-$1.5M buyer, <strong>lakefront delivers more purchasing power</strong>: more home, more square footage, and lake access vs. school-zone cachet. Jordan's price floor is now essentially $800K+ for detached homes.</p>
+      <div class="budget-card" style="margin: 0; background: linear-gradient(135deg, var(--tfl-light), #e0eeff); border-color: #93c5fd;">
+        <h4 style="color: #1a3d6e;">🦅 $750K–$1.2M — Both Competitive</h4>
+        <p>Both lakes offer strong options here. CHL: <strong>Blue Water Bay upper tier, Harbor Pointe, Floating Mill Village</strong>. TFL: Barefoot Bay, Twin Creeks upper, entry-level Fanning Bend, Elklore, Cline Ridge. Decision comes down to drive tolerance and dock priority.</p>
       </div>
       <div class="budget-card" style="margin: 0; background: linear-gradient(135deg, #fef9ec, #fef3c7); border-color: #fde68a;">
-        <h4 style="color: #78350f;">⚠️ The Shrinking Window</h4>
-        <p>In 2019, <strong>60%+ of lakefront sales</strong> fell under $1M. By 2025, the median alone is $1.229M — the entire market has shifted upward. Sub-$1M lakefront is now largely the domain of smaller/older cottages or condos with dock access. Buyers who wait may find their $1.5M goes further today than in 2026 or 2027.</p>
+        <h4 style="color: #78350f;">📈 Appreciation Leader: Center Hill</h4>
+        <p><strong>CHL posted +81.4% median appreciation</strong> over 6 years vs. TFL's +54.6%. The price gap between the two lakes has narrowed from 50% in 2020 to ~28% in 2025, suggesting CHL is repricing faster and may represent the stronger relative value for buyers entering today.</p>
       </div>
-      <div class="budget-card" style="margin: 0; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-color: #bbf7d0;">
-        <h4 style="color: #14532d;">✅ City Matters Significantly</h4>
-        <p><strong>Hendersonville and Old Hickory</strong> tend to offer the widest range of price points. Gallatin's lakefront is more sporadic. Lebanon and Mount Juliet have fewer pure-lakefront options but occasionally surface excellent value. If $1.5M is the ceiling, targeting Hendersonville's established lake neighborhoods gives the best odds of finding the right home.</p>
+      <div class="budget-card" style="margin: 0; background: linear-gradient(135deg, var(--tfl-light), #dbeafe); border-color: #93c5fd;">
+        <h4 style="color: #14532d;">✅ $1.2M+ — Tims Ford Wins</h4>
+        <p><strong>TFL wins decisively</strong> in inventory quality and selection at the top of the market. Fanning Bend, Hopkins Point Bluff Dr, Highland Ridge, and Ridgeville Sub offer world-class lakefront with no comparable CHL offering — and TFL's average crossed <strong>$1M for the first time in 2025</strong>.</p>
       </div>
     </div>
   </div>
 
-  <!-- OHL CITY BREAKDOWN -->
+  <!-- CHL SUBDIVISION BREAKDOWN -->
   <div class="card">
     <div class="card-header">
       <div>
-        <div class="card-title">Old Hickory Lake · 2025 by City</div>
-        <div class="card-subtitle">Median sale price and activity by postal city · private dock/slip listings only</div>
+        <div class="card-title">Center Hill Lake · Top Subdivisions</div>
+        <div class="card-subtitle">Key lakefront communities and their 2025 market character</div>
       </div>
     </div>
     <div class="city-grid">
       <div class="city-card">
-        <div class="city-name">📍 All Cities Combined</div>
+        <div class="city-name">📍 All CHL Combined</div>
         <div class="city-stat">
           <div class="cs-label">2025 Median Sale Price</div>
-          <div class="cs-val">$1,229,000</div>
-          <div class="cs-sub">75 sales · Avg DOM: 57 days</div>
+          <div class="cs-val">$627,500</div>
+          <div class="cs-sub">Median DOM: 38 days · $/SF: $280</div>
         </div>
         <div class="city-stat">
-          <div class="cs-label">Median Price / SF</div>
-          <div class="cs-val">$370/sf</div>
-        </div>
-        <div class="city-stat">
-          <div class="cs-label">Growth Since 2019</div>
-          <div class="cs-val" style="font-size:15px;color:#16a34a;">+66%</div>
-          <div class="cs-sub">$740K → $1.229M</div>
+          <div class="cs-label">Growth Since 2020</div>
+          <div class="cs-val" style="font-size:15px;color:#16a34a;">+81.4%</div>
+          <div class="cs-sub">$346K → $628K</div>
         </div>
       </div>
-      <div class="city-card highlight">
-        <div class="city-name">🌊 Hendersonville</div>
+      <div class="city-card highlight-chl">
+        <div class="city-name">🌲 Floating Mill Village / Harbor Pointe</div>
         <div class="city-stat">
-          <div class="cs-label">Notes</div>
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:15px;">Premium Tier</div>
+          <div class="cs-sub">Consistently high-price; very limited inventory; repeat demand every year</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range (2025)</div>
+          <div class="cs-val" style="font-size:14px;">$700K–$1M+</div>
+        </div>
+      </div>
+      <div class="city-card highlight-chl">
+        <div class="city-name">🌲 Blue Water Bay / Hurricane Pointe</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
           <div class="cs-val" style="font-size:15px;">Most Active</div>
-          <div class="cs-sub">Dominant share of volume; Cherokee Woods, Green Harbor, Southern Shores, Bay Point, Trails End, Governors Point, Hidden Point, Foxland Harbor</div>
+          <div class="cs-sub">Premium lakefront with mix of new construction and resale; broadest selection</div>
         </div>
         <div class="city-stat">
           <div class="cs-label">Price Range (2025)</div>
-          <div class="cs-val" style="font-size:14px;">$570K–$4.7M</div>
-          <div class="cs-sub">Widest selection under $1.5M</div>
-        </div>
-      </div>
-      <div class="city-card highlight">
-        <div class="city-name">🌊 Old Hickory / Madison</div>
-        <div class="city-stat">
-          <div class="cs-label">Notes</div>
-          <div class="cs-val" style="font-size:15px;">Strong Value</div>
-          <div class="cs-sub">Village of Old Hickory area; close-in lake access; Hermitage Harbor, Rebel Rd corridor</div>
-        </div>
-        <div class="city-stat">
-          <div class="cs-label">Price Range (2025)</div>
-          <div class="cs-val" style="font-size:14px;">$915K–$1.7M</div>
-          <div class="cs-sub">Good sub-$1.5M inventory</div>
+          <div class="cs-val" style="font-size:14px;">$450K–$1.5M</div>
         </div>
       </div>
       <div class="city-card">
-        <div class="city-name">📍 Gallatin</div>
+        <div class="city-name">📍 Lakeview Mountain Estates</div>
         <div class="city-stat">
-          <div class="cs-label">Notes</div>
-          <div class="cs-val" style="font-size:15px;">Sporadic</div>
-          <div class="cs-sub">Fairvue Plantation drives most activity; high-end skew; Foxland Harbor; fewer sub-$1.5M options in recent years</div>
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:15px;">Highest Volume</div>
+          <div class="cs-sub">Widest price range; entry-level to mid-tier; most accessible</div>
         </div>
         <div class="city-stat">
           <div class="cs-label">Price Range (2025)</div>
-          <div class="cs-val" style="font-size:14px;">$2.0M–$4.7M</div>
-          <div class="cs-sub">Largely above $1.5M budget</div>
+          <div class="cs-val" style="font-size:14px;">$87K–$570K</div>
         </div>
       </div>
       <div class="city-card">
-        <div class="city-name">📍 Lebanon</div>
+        <div class="city-name">📍 Casey Cove / Chapelwood</div>
         <div class="city-stat">
-          <div class="cs-label">Notes</div>
-          <div class="cs-val" style="font-size:15px;">Occasional</div>
-          <div class="cs-sub">Sporadic lakefront closings; typically Tradewinds, Saundersville Ferry area; some strong value plays</div>
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:15px;">Newer Builds</div>
+          <div class="cs-sub">High-end newer construction; limited turnover; strong demand retention</div>
         </div>
         <div class="city-stat">
           <div class="cs-label">Price Range (2025)</div>
-          <div class="cs-val" style="font-size:14px;">$1.5M–$2.2M</div>
-          <div class="cs-sub">Limited but notable sales</div>
+          <div class="cs-val" style="font-size:14px;">$490K–$950K</div>
         </div>
       </div>
       <div class="city-card">
-        <div class="city-name">📍 Mount Juliet</div>
+        <div class="city-name">📍 The Falls / Cherry Hill / Shoreside</div>
         <div class="city-stat">
-          <div class="cs-label">Notes</div>
-          <div class="cs-val" style="font-size:15px;">Limited</div>
-          <div class="cs-sub">Fewest true lakefront closings with private dock; occasional high-value parcels and acreage properties</div>
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:15px;">Mid-Market</div>
+          <div class="cs-sub">Reliable new construction and resale; good value plays across multiple communities</div>
         </div>
         <div class="city-stat">
           <div class="cs-label">Price Range (2025)</div>
-          <div class="cs-val" style="font-size:14px;">$730K–$1.1M</div>
-          <div class="cs-sub">Budget-friendly when available</div>
+          <div class="cs-val" style="font-size:14px;">$270K–$1.05M</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- OHL YEAR-BY-YEAR -->
-  <div class="slider-section">
+  <!-- CHL YEAR BY YEAR -->
+  <div class="slider-section" style="border-top: 4px solid var(--chl-mid);">
     <div class="slider-header">
-      <h2>Old Hickory Lake · Year-by-Year Breakdown</h2>
-      <p>All lakefront sales with private dock/slip across the Greater Nashville corridor · Compare with Jordan Elementary zone figures</p>
+      <h2>Center Hill Lake · Year-by-Year Breakdown</h2>
+      <p>Residential sales across major CHL subdivisions · DeKalb County, TN · Compared with Tims Ford figures</p>
     </div>
 
     <div class="year-tabs">
-      <button class="year-tab active" onclick="showYear('2019', event)">2019</button>
-      <button class="year-tab" onclick="showYear('2020', event)">2020</button>
-      <button class="year-tab" onclick="showYear('2021', event)">2021</button>
-      <button class="year-tab" onclick="showYear('2022', event)">2022</button>
-      <button class="year-tab" onclick="showYear('2023', event)">2023</button>
-      <button class="year-tab" onclick="showYear('2024', event)">2024</button>
-      <button class="year-tab" onclick="showYear('2025', event)">2025 <span class="badge">Latest</span></button>
+      <button class="year-tab active" onclick="showCHLYear('chl2020', event)">2020</button>
+      <button class="year-tab" onclick="showCHLYear('chl2021', event)">2021</button>
+      <button class="year-tab" onclick="showCHLYear('chl2022', event)">2022</button>
+      <button class="year-tab" onclick="showCHLYear('chl2023', event)">2023</button>
+      <button class="year-tab" onclick="showCHLYear('chl2024', event)">2024</button>
+      <button class="year-tab" onclick="showCHLYear('chl2025', event)">2025 <span class="badge">Latest</span></button>
     </div>
 
-    <!-- 2019 -->
-    <div class="year-panel active" id="panel-2019">
+    <!-- CHL 2020 -->
+    <div class="year-panel active" id="panel-chl2020">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">68</div><div class="ys-sub">Closed transactions</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$881K</div><div class="ys-sub">$881,258</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$740K</div><div class="ys-sub">$740,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$233</div><div class="ys-sub">Median: $226/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">63</div><div class="ys-sub">Wide range of urgency</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$218K–$2.10M</div><div class="ys-sub">Low to high</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$331K</div><div class="ys-sub">$331,063</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$346K</div><div class="ys-sub">$346,000</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$144</div><div class="ys-sub">Median: $148/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">44</div><div class="ys-sub">Wide range of urgency</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,378</div><div class="ys-sub">Larger homes</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">46 days</div><div class="ys-sub">Pre-surge baseline</div></div>
           </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2019</div>
-            <div class="jc-row"><span>Median Price</span><strong>$760K</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$800K</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>36 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>107 sales</strong></div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2020</div>
+            <div class="jc-row"><span>Median Price</span><strong>$520,000</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$577,497</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>25 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$188</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context">
-            <strong>2019 — Lakefront Below Jordan.</strong> Median lakefront ($740K) came in just under the Jordan zone median ($760K) — effectively the same market tier. This was the last year the two markets were in close parity. The $218K floor reflects small cottages and condo-style lake units, while the $2.1M ceiling marks the beginning of large estate-format lakefront. For buyers with $750–900K, both lakefront and Jordan Elementary were genuinely comparable options.
+          <div class="year-context chl-ctx">
+            <strong>2020 — Pre-Surge Baseline.</strong> The CHL market opened the decade at a median of $346K — a solid $174K discount to Tims Ford's $520K median. The 50% premium TFL commanded set the starting point for a gap that would narrow considerably over the next 5 years. DOM of 44 days reflected a normal pre-pandemic pace. This baseline makes CHL's subsequent +81% appreciation all the more impressive.
           </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KCA7" target="_blank" rel="noopener">
+        </div>
+      </div>
+    </div>
+
+    <!-- CHL 2021 -->
+    <div class="year-panel" id="panel-chl2021">
+      <div class="year-panel-grid">
+        <div>
+          <div class="year-stats">
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$445K</div><div class="ys-sub">$445,152</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$411K</div><div class="ys-sub">$411,250</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$207</div><div class="ys-sub">Median: $203/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">5</div><div class="ys-sub">Market on fire</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,220</div><div class="ys-sub">Slightly smaller mix</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">17.5 days</div><div class="ys-sub">Exceptional pace</div></div>
+          </div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2021</div>
+            <div class="jc-row"><span>Median Price</span><strong>$564,842</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$676,442</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>5 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$227</strong></div>
+          </div>
+        </div>
+        <div>
+          <div class="year-context chl-ctx">
+            <strong>2021 — Both Lakes Ignite.</strong> The median DOM collapsed to just 5 days at both CHL and TFL simultaneously — a rare synchronized frenzy. CHL's median jumped +19% to $411K while TFL rose +9% to $565K. Notably, both markets hit the same 5-day DOM, suggesting equal buyer urgency. The premium gap held at ~37% (TFL over CHL). CHL's $/SF jumped from $148 to $203 — the largest single-year $/SF gain in this dataset.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHL 2022 -->
+    <div class="year-panel" id="panel-chl2022">
+      <div class="year-panel-grid">
+        <div>
+          <div class="year-stats">
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$550K</div><div class="ys-sub">$550,139</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$551K</div><div class="ys-sub">$551,250</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$226</div><div class="ys-sub">Median: $225/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">5</div><div class="ys-sub">Still blazing fast</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,331</div><div class="ys-sub">Stable home sizes</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">18.5 days</div><div class="ys-sub">Near-peak pace</div></div>
+          </div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2022</div>
+            <div class="jc-row"><span>Median Price</span><strong>$829,900</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$856,707</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>15 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$281</strong></div>
+          </div>
+        </div>
+        <div>
+          <div class="year-context chl-ctx">
+            <strong>2022 — CHL Surges; TFL Gap Widens.</strong> CHL's median jumped another 34% to $551K as pandemic momentum peaked. But TFL surged even more dramatically — +47% to $830K — its largest single-year gain. The premium gap temporarily expanded to 50.5%, its widest point. Both markets hit the floor on DOM (5 days CHL, 15 days TFL). Rate shock hit in H2 2022 but hadn't yet cooled closings.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHL 2023 -->
+    <div class="year-panel" id="panel-chl2023">
+      <div class="year-panel-grid">
+        <div>
+          <div class="year-stats">
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$666K</div><div class="ys-sub">$666,036</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$568K</div><div class="ys-sub">$567,500</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$266</div><div class="ys-sub">Median: $266/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">23</div><div class="ys-sub">Market normalizing</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,200</div><div class="ys-sub">Holding steady</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">30.5 days</div><div class="ys-sub">Patiently paced</div></div>
+          </div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2023</div>
+            <div class="jc-row"><span>Median Price</span><strong>$787,500</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$925,330</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>22 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$292</strong></div>
+          </div>
+        </div>
+        <div>
+          <div class="year-context chl-ctx">
+            <strong>2023 — Prices Hold, Pace Slows.</strong> Rising rates expanded DOM from 5 to 23 days at CHL, nearly matching TFL's 22-day median. CHL median ticked up modestly (+3%) to $568K. TFL retreated slightly from its 2022 peak to $787K. The premium gap compressed back to ~38.8%. A divergence appeared: CHL avg ($666K) ran well above its own median ($568K), signaling a premium upper tier pulling averages higher.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHL 2024 -->
+    <div class="year-panel" id="panel-chl2024">
+      <div class="year-panel-grid">
+        <div>
+          <div class="year-stats">
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$597K</div><div class="ys-sub">$597,285</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$643K</div><div class="ys-sub">$642,500</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$263</div><div class="ys-sub">Median: $256/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">40</div><div class="ys-sub">Cooling pace</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,350</div><div class="ys-sub">Slightly larger mix</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">49 days</div><div class="ys-sub">Most patient year</div></div>
+          </div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2024</div>
+            <div class="jc-row"><span>Median Price</span><strong>$774,500</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$898,327</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>40 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$283</strong></div>
+          </div>
+        </div>
+        <div>
+          <div class="year-context chl-ctx">
+            <strong>2024 — Convergence on Pace.</strong> A notable moment: CHL and TFL posted <strong>identical median DOM of 40 days</strong> — for the first time in this dataset, buyers faced the same urgency level at both lakes. CHL median hit a new record at $642,500 before a modest pullback in 2025. The TFL premium continued compressing, falling to 20.5% — the narrowest spread ever recorded.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHL 2025 -->
+    <div class="year-panel" id="panel-chl2025">
+      <div class="year-panel-grid">
+        <div>
+          <div class="year-stats">
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$680K</div><div class="ys-sub">$679,789</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$628K</div><div class="ys-sub">$627,500</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$287</div><div class="ys-sub">Median: $280/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value">38</div><div class="ys-sub">Stable vs 2024</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value">2,299</div><div class="ys-sub">Consistent sizing</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value">55.5 days</div><div class="ys-sub">Buyer-friendly pace</div></div>
+          </div>
+          <div class="compare-box tfl">
+            <div class="jc-label">🦅 Tims Ford Lake — 2025</div>
+            <div class="jc-row"><span>Median Price</span><strong>$804,000</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$1,003,030</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>32 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$307</strong></div>
+          </div>
+        </div>
+        <div>
+          <div class="year-context chl-ctx">
+            <strong>2025 — CHL Sets $/SF Record.</strong> CHL's median pulled back slightly (-2.3%) to $627,500 from its 2024 peak, but <strong>$/SF hit an all-time high of $280</strong> — suggesting mid-tier price normalization while per-foot values remain strong. At TFL, the average sale price crossed $1M for the first time. The premium gap settled at 28.1%, still narrowed from 2020's 50%. CHL's DOM of 38 days signals a calm, negotiable market.
+          </div>
+          <a class="view-report-btn" href="https://go.realtracs.com/1hPSR2h" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2019 Lakefront Report on Realtracs
+            View Full Market Research Report
           </a>
         </div>
       </div>
     </div>
 
-    <!-- 2020 -->
-    <div class="year-panel" id="panel-2020">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">75</div><div class="ys-sub">Closed transactions</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$900K</div><div class="ys-sub">$900,104</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$775K</div><div class="ys-sub">$775,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$296</div><div class="ys-sub">Median: $226/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">42</div><div class="ys-sub">Improving from 2019</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$218K–$3.20M</div><div class="ys-sub">Ceiling rising</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2020</div>
-            <div class="jc-row"><span>Median Price</span><strong>$733K</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$813K</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>29 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>140 sales</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2020 — Lakefront Pulls Ahead.</strong> Pandemic relocation fever hit lakefront harder and earlier. The lakefront median ($775K) surpassed the Jordan zone median ($733K) for the first time. Volume held steady at 75 sales while the ceiling jumped to $3.2M. The wide gap between average ($900K) and median ($775K) tells the story — ultra-premium sales were already skewing the market upward while the typical buyer was still finding value.
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KF0u" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2020 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2021 -->
-    <div class="year-panel" id="panel-2021">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">97</div><div class="ys-sub">Highest year on record</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$1.31M</div><div class="ys-sub">$1,314,497</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$993K</div><div class="ys-sub">$993,500</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$307</div><div class="ys-sub">Median: $298/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">21</div><div class="ys-sub">Median: 4 days</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$305K–$7.275M</div><div class="ys-sub">New ceiling — $7.275M estate</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2021</div>
-            <div class="jc-row"><span>Median Price</span><strong>$967K</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$1.117M</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>22 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>160 sales (record)</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2021 — The Peak Year for Both Markets.</strong> With 97 closings and a median DOM of just 4 days, lakefront hit its highest transaction volume ever. The median sale of $993,500 crossed the threshold from aspirational to mainstream for serious buyers. Notably, the lakefront median ($993K) ran slightly <strong>above Jordan's $967K median</strong>, the only year lakefront outpaced Jordan on median price. A $7.275M Cherokee Dock Rd estate set a new price ceiling.
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6K8CM" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2021 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2022 -->
-    <div class="year-panel" id="panel-2022">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">75</div><div class="ys-sub">Held despite rate shock</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$1.40M</div><div class="ys-sub">$1,403,646</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$1.295M</div><div class="ys-sub">$1,294,950</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$361</div><div class="ys-sub">Median: $355/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">21</div><div class="ys-sub">Fastest year on record</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$382K–$3.975M</div><div class="ys-sub">Ceiling still rising</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2022</div>
-            <div class="jc-row"><span>Median Price</span><strong>$1,457,250</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$1,562,163</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>12 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>87 sales</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2022 — The Great Repricing.</strong> With an average DOM of just 21 days and median prices jumping over $500K from 2020, 2022 reflects the momentum 2021 created. Notably, the lakefront median ($1.295M) came in <strong>$162K below Jordan's median ($1.457M)</strong> — a reversal. Rate-shock volume drops hit Jordan harder (down 46%), while lakefront held at 75 sales.
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KM2N" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2022 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2023 -->
-    <div class="year-panel" id="panel-2023">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">61</div><div class="ys-sub">Volume dip</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$1.34M</div><div class="ys-sub">$1,341,182</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$1.193M</div><div class="ys-sub">$1,192,500</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$350</div><div class="ys-sub">Median: $315/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">43</div><div class="ys-sub">Market normalizing</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$401K–$3.50M</div><div class="ys-sub">Wide spread</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2023</div>
-            <div class="jc-row"><span>Median Price</span><strong>$1,487,000</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$1,720,848</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>43 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>75 sales</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2023 — Softening, But Holding.</strong> Volume dipped to 61 as high rates continued to sideline buyers, but the median held at $1.193M — <strong>still $294K below Jordan's $1.487M median</strong>. Interestingly, both markets showed nearly identical DOM (~43 days) for the first time, suggesting lakefront was no longer significantly easier to buy than Jordan zone.
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KQAp" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2023 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2024 -->
-    <div class="year-panel" id="panel-2024">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">60</div><div class="ys-sub">Closed transactions</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$1.44M</div><div class="ys-sub">$1,436,731</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$1.25M</div><div class="ys-sub">$1,250,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$392</div><div class="ys-sub">Median: $378/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">46</div><div class="ys-sub">Slightly slower pace</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$472K–$3.35M</div><div class="ys-sub">Low to high</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2024</div>
-            <div class="jc-row"><span>Median Price</span><strong>$1,520,000</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$1,867,224</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>52 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>84 sales</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2024 — Lakefront Value Becomes Clear.</strong> The gap between the two markets widened: lakefront median at $1.25M vs. Jordan zone at $1.52M — a <strong>$270K delta</strong>. For a buyer with $1.5M, lakefront delivered more options while Jordan was pulling most buyers above the median. Average DOM was virtually identical (46 vs. 52 days).
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KS4d" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2024 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2025 -->
-    <div class="year-panel" id="panel-2025">
-      <div class="year-panel-grid">
-        <div>
-          <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value">75</div><div class="ys-sub">Volume recovered</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value">$1.54M</div><div class="ys-sub">$1,543,308</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value">$1.229M</div><div class="ys-sub">$1,229,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value">$392</div><div class="ys-sub">Median: $370/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value">57</div><div class="ys-sub">Slower but steady</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value" style="font-size:14px;">$570K–$4.715M</div><div class="ys-sub">New ceiling</div></div>
-          </div>
-          <div class="jordan-compare-box">
-            <div class="jc-label">🏫 Jordan Elementary Zone — 2025</div>
-            <div class="jc-row"><span>Median Price</span><strong>$1,640,000</strong></div>
-            <div class="jc-row"><span>Avg Price</span><strong>$2,028,142</strong></div>
-            <div class="jc-row"><span>Avg DOM</span><strong>32 days</strong></div>
-            <div class="jc-row"><span>Sales Count</span><strong>101 sales</strong></div>
-          </div>
-        </div>
-        <div>
-          <div class="year-context">
-            <strong>2025 — The Biggest Value Gap Yet.</strong> Lakefront median ($1.229M) now sits <strong>$411K below the Jordan zone median ($1.640M)</strong> — the widest spread in this dataset. For a buyer at $1.5M, nearly all of the lakefront market is accessible, while the Jordan zone buyer is shopping below the median. Volume bounced back to 75 with the highest ceiling ($4.715M) ever recorded.
-          </div>
-          <a class="view-report-btn" href="https://go.realtracs.com/1h6KeDG" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-            View Full 2025 Lakefront Report on Realtracs
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /OHL slider-section -->
+  </div><!-- /CHL slider -->
 
 </div><!-- /main -->
 
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!--  WINCHESTER / TIMS FORD LAKE SECTION                                   -->
+<!--  TIMS FORD LAKE SECTION                                                 -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 
-<div class="winch-section-banner">
+<div class="tfl-section-banner">
   <div class="wb-eyebrow">Winchester, Tennessee · Franklin County · Tims Ford Lake</div>
-  <h2>Hopkins Point &amp;<br><em>Twin Creeks</em></h2>
-  <p>Six years of closed sales (2020–2025) inside Hopkins Point and Twin Creeks Village — two of Tims Ford Lake's premier lakefront communities — benchmarked year by year so you can see exactly how this market has moved.</p>
+  <h2>Tims Ford Lake<br><em>Market Data</em></h2>
+  <p>Six years of closed sales (2020–2025) across all major Tims Ford lakefront communities — Hopkins Point, Twin Creeks Village, Fanning Bend, Highland Ridge, and more — benchmarked year by year.</p>
 </div>
 
-<!-- WINCHESTER STAT STRIP -->
-<div class="winch-stat-strip stat-strip">
+<!-- TFL STAT STRIP -->
+<div class="tfl-stat-strip stat-strip">
   <div class="stat-strip-inner">
     <div class="stat-item">
-      <div class="stat-label">Winchester Total Sales (2020–2025)</div>
-      <div class="stat-value green">200</div>
-      <div class="stat-note">Hopkins Point + Twin Creeks combined</div>
+      <div class="stat-label">TFL Total Sales (2020–2025)</div>
+      <div class="stat-value tfl">~500+</div>
+      <div class="stat-note">~2.5x the volume of CHL</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">Median Price Growth</div>
-      <div class="stat-value green">+36%</div>
-      <div class="stat-change" style="color:var(--forest-mid);">↑ $520K → $707K (2025)</div>
+      <div class="stat-label">TFL Median Price Growth</div>
+      <div class="stat-value tfl">+55%</div>
+      <div class="stat-change" style="color:var(--tfl-mid);">↑ $520K → $804K (2025)</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">Avg Price/SF Growth</div>
-      <div class="stat-value green">+39%</div>
-      <div class="stat-change" style="color:var(--forest-mid);">↑ $196 → $273/sf (2025)</div>
+      <div class="stat-label">TFL Price/SF Growth</div>
+      <div class="stat-value tfl">+63%</div>
+      <div class="stat-change" style="color:var(--tfl-mid);">↑ $188 → $307/sf (2025)</div>
     </div>
     <div class="stat-item">
-      <div class="stat-label">2025 Median Price</div>
-      <div class="stat-value green">$707K</div>
-      <div class="stat-note">32 closed sales · Avg DOM: 69 days</div>
+      <div class="stat-label">TFL 2025 Median Price</div>
+      <div class="stat-value tfl">$804K</div>
+      <div class="stat-note">Avg crossed $1M · DOM: 32 days</div>
     </div>
   </div>
 </div>
 
-<!-- WINCHESTER CONTEXT BANNER -->
+<!-- TFL CONTEXT BANNER -->
 <div class="context-banner">
-  <div class="context-inner green">
-    <strong>About this Winchester dataset:</strong> Includes all closed single-family residential sales in the Twin Creeks Village and Hopkins Point subdivisions, Winchester, TN (postal city). Twin Creeks is a newer master-planned lakefront community with a marina and resort amenities; Hopkins Point is an established lakefront neighborhood with larger lots and mature landscaping on Bluff Dr and Ravine Dr. <strong>The two subdivisions together represent the core of Tims Ford Lake's residential market</strong>, ranging from entry-level attached cottages under $400K to estate-format lakefront homes above $3M.
+  <div class="context-inner tfl">
+    <strong>About the Tims Ford Lake dataset:</strong> Includes all closed single-family residential sales across Tims Ford's major lakefront communities: Hopkins Point, Twin Creeks Village (all phases), Fanning Bend, Highland Ridge, Barefoot Bay, Dripping Springs, Narrows Cabin Sites, Cline Ridge, Ridgeville Sub, and Elklore Cabin Sites. Tims Ford (10,700 acres, managed by TVA) offers significantly more flexible dock permitting than CHL's Army Corps oversight. <strong>The average sale price crossed $1,000,000 for the first time in 2025 — the first Middle Tennessee lake market to hit that threshold.</strong>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- WINCHESTER YEAR BY YEAR -->
-  <div class="slider-section" style="border-top: 4px solid var(--forest-mid);">
+  <!-- TFL YEAR BY YEAR -->
+  <div class="slider-section" style="border-top: 4px solid var(--tfl-mid);">
     <div class="slider-header">
-      <h2>Winchester · Year-by-Year Breakdown</h2>
-      <p>Hopkins Point + Twin Creeks Village · Winchester, TN · Tims Ford Lake</p>
+      <h2>Tims Ford Lake · Year-by-Year Breakdown</h2>
+      <p>Full residential market across all major TFL subdivisions · Winchester, TN · Franklin County · Compared with CHL figures</p>
     </div>
 
     <div class="year-tabs">
-      <button class="year-tab winch-tab active" onclick="showWinchYear('w2020', event)">2020</button>
-      <button class="year-tab winch-tab" onclick="showWinchYear('w2021', event)">2021</button>
-      <button class="year-tab winch-tab" onclick="showWinchYear('w2022', event)">2022</button>
-      <button class="year-tab winch-tab" onclick="showWinchYear('w2023', event)">2023</button>
-      <button class="year-tab winch-tab" onclick="showWinchYear('w2024', event)">2024</button>
-      <button class="year-tab winch-tab" onclick="showWinchYear('w2025', event)">2025 <span class="badge">Latest</span></button>
+      <button class="year-tab tfl-tab active" onclick="showTFLYear('tfl2020', event)">2020</button>
+      <button class="year-tab tfl-tab" onclick="showTFLYear('tfl2021', event)">2021</button>
+      <button class="year-tab tfl-tab" onclick="showTFLYear('tfl2022', event)">2022</button>
+      <button class="year-tab tfl-tab" onclick="showTFLYear('tfl2023', event)">2023</button>
+      <button class="year-tab tfl-tab" onclick="showTFLYear('tfl2024', event)">2024</button>
+      <button class="year-tab tfl-tab" onclick="showTFLYear('tfl2025', event)">2025 <span class="badge">Latest</span></button>
     </div>
 
-    <!-- W2020 -->
-    <div class="year-panel active" id="panel-w2020">
+    <!-- TFL 2020 -->
+    <div class="year-panel active" id="panel-tfl2020">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">25</div><div class="ys-sub">Closed transactions</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$617K</div><div class="ys-sub">$617,116</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$520K</div><div class="ys-sub">$520,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$196</div><div class="ys-sub">Median: ~$188/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">62</div><div class="ys-sub">Wide variance in pace</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$215K–$1.39M</div><div class="ys-sub">Low to high</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$577K</div><div class="ys-sub">$577,497</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$520K</div><div class="ys-sub">$520,000</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$191</div><div class="ys-sub">Median: $188/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">25</div><div class="ys-sub">Active pre-surge</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,702</div><div class="ys-sub">Larger home sizes</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">26 days</div><div class="ys-sub">Pre-surge baseline</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2020</div>
+            <div class="jc-row"><span>Median Price</span><strong>$346,000</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$331,063</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>44 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$148</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2020 — Pre-Surge Baseline.</strong> The market opened the decade with solid fundamentals. A median of $520K reflects genuine lake-access value in a market not yet discovered by broader Nashville migration. The top sale at $1.39M (140 Clearview Cir, Hopkins Point) set a notable high for the era. Entry-level pricing at $215K–$250K (small Hopkins Point lots) created a wide-access market. This is the comparison point for understanding how much appreciation has occurred.
+          <div class="year-context tfl-ctx">
+            <strong>2020 — TFL Commands 50% Premium.</strong> The market opened with a TFL median of $520K versus CHL's $346K — a 50.3% premium. Twin Creeks was still establishing itself, and Hopkins Point was the primary luxury driver. DOM of 25 days (TFL) vs. 44 (CHL) showed the lake lifestyle premium was already reflected in quicker TFL absorption. This baseline sets the stage for CHL's dramatic catch-up story.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPRc2V" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPRc2V" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2020 Winchester Report on Realtracs
           </a>
@@ -1384,24 +1265,31 @@ body {
       </div>
     </div>
 
-    <!-- W2021 -->
-    <div class="year-panel" id="panel-w2021">
+    <!-- TFL 2021 -->
+    <div class="year-panel" id="panel-tfl2021">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">32</div><div class="ys-sub">Record year volume</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$682K</div><div class="ys-sub">$681,742</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$535K</div><div class="ys-sub">$534,750</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$233</div><div class="ys-sub">Median: $213/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">40</div><div class="ys-sub">Market accelerating</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$262K–$4.50M</div><div class="ys-sub">New ceiling — Hopkins Point estate</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$676K</div><div class="ys-sub">$676,442</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$565K</div><div class="ys-sub">$564,842</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$235</div><div class="ys-sub">Median: $227/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">5</div><div class="ys-sub">Market on fire</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,513</div><div class="ys-sub">Slightly smaller mix</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">18 days</div><div class="ys-sub">Exceptional urgency</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2021</div>
+            <div class="jc-row"><span>Median Price</span><strong>$411,250</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$445,152</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>5 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$203</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2021 — Volume Peaks, Ceiling Shatters.</strong> 32 sales matched the all-time volume high for this dataset. The market stayed surprisingly affordable at the median ($534,750), even as a landmark $4.5M sale at 133 Bluff Dr N (Hopkins Point — a 4.2-acre, 8,072 SF estate) set a new ceiling that would stand for years. The spread between average ($682K) and median ($535K) shows the upper tier was pulling hard. DOM dropped to 40 days, signaling genuine buyer urgency arriving in Winchester.
+          <div class="year-context tfl-ctx">
+            <strong>2021 — Synchronized Frenzy.</strong> Both lakes hit a remarkable milestone: identical 5-day median DOM. TFL's median rose modestly to $565K (+8.6%) while CHL surged more aggressively to $411K (+18.8%) — CHL's gap-closing began here. A landmark $4.5M estate at 133 Bluff Dr N (Hopkins Point) set a new ceiling, while Twin Creeks ramped new construction volume. The premium gap narrowed to 37%.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPRnFG" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPRnFG" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2021 Winchester Report on Realtracs
           </a>
@@ -1409,24 +1297,31 @@ body {
       </div>
     </div>
 
-    <!-- W2022 -->
-    <div class="year-panel" id="panel-w2022">
+    <!-- TFL 2022 -->
+    <div class="year-panel" id="panel-tfl2022">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">39</div><div class="ys-sub">Highest year on record</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$728K</div><div class="ys-sub">$728,043</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$664K</div><div class="ys-sub">$664,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$261</div><div class="ys-sub">Median: $255/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">36</div><div class="ys-sub">Fastest year on record</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$340K–$2.45M</div><div class="ys-sub">Floor rising significantly</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$857K</div><div class="ys-sub">$856,707</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$830K</div><div class="ys-sub">$829,900</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$305</div><div class="ys-sub">Median: $281/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">15</div><div class="ys-sub">Fastest TFL year</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,685</div><div class="ys-sub">Larger homes returning</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">23 days</div><div class="ys-sub">Quickest close cadence</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2022</div>
+            <div class="jc-row"><span>Median Price</span><strong>$551,250</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$550,139</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>5 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$225</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2022 — The Big Jump.</strong> The median price surged 24% in a single year — from $535K to $664K — the sharpest single-year gain in this dataset. Volume also hit a new record at 39 sales, and DOM compressed to just 36 days on average. This was the year Winchester got "discovered." The $160K Paddleboard Ct lot sale at $842K (above ask) and multiple $800K+ Twin Creeks transactions signaled the upper tier was repricing fast. The floor ($340K) also rose from 2021's $262K, pushing entry-level buyers upmarket.
+          <div class="year-context tfl-ctx">
+            <strong>2022 — TFL's Big Jump.</strong> The largest single-year median price gain in this dataset: TFL surged +46.9% from $565K to $830K. Winchester was "discovered." Multiple $800K+ Twin Creeks transactions, Hammock Dr new construction, and Hopkins Point luxury sales drove the surge. The premium gap briefly widened to 50.5% — its maximum. CHL was still fast (5-day DOM) but TFL's repricing was more dramatic.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPRt0K" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPRt0K" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2022 Winchester Report on Realtracs
           </a>
@@ -1434,24 +1329,31 @@ body {
       </div>
     </div>
 
-    <!-- W2023 -->
-    <div class="year-panel" id="panel-w2023">
+    <!-- TFL 2023 -->
+    <div class="year-panel" id="panel-tfl2023">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">38</div><div class="ys-sub">Remained strong</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$816K</div><div class="ys-sub">$815,552</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$722K</div><div class="ys-sub">$722,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$283</div><div class="ys-sub">Median: $253/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">69</div><div class="ys-sub">Cooling from 2022</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$365K–$3.75M</div><div class="ys-sub">New upper ceiling</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$925K</div><div class="ys-sub">$925,330</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$788K</div><div class="ys-sub">$787,500</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$319</div><div class="ys-sub">Median: $292/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">22</div><div class="ys-sub">Cooling with rates</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,707</div><div class="ys-sub">Stable sizing</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">34 days</div><div class="ys-sub">Extending pace</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2023</div>
+            <div class="jc-row"><span>Median Price</span><strong>$567,500</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$666,036</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>23 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$266</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2023 — Prices Hold, Pace Slows.</strong> Despite rising rates, the median ticked up another 9% to $722K and volume stayed nearly flat at 38 sales — a sign of genuine demand holding the floor. The big story was Hopkins Point: a $3.75M sale at 814 Bluff Dr (6,055 SF, 5 baths, 2007 build) established a new ceiling and pulled the average significantly above the median. DOM doubled to 69 days, consistent with the broader market cooling seen nationally. For buyers, this was the first "patient buyer" year since 2020.
+          <div class="year-context tfl-ctx">
+            <strong>2023 — Rates Slow Both Markets.</strong> TFL median pulled back slightly to $788K (-5%) while CHL held at $568K (+3%). Both markets showed nearly identical DOM (~22–23 days), the closest convergence yet. A $3.75M sale at 814 Bluff Dr (Hopkins Point) pulled TFL's average well above the median. The premium gap compressed to 38.8% — meaningful narrowing from 2022's peak.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPRw36" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPRw36" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2023 Winchester Report on Realtracs
           </a>
@@ -1459,24 +1361,31 @@ body {
       </div>
     </div>
 
-    <!-- W2024 -->
-    <div class="year-panel" id="panel-w2024">
+    <!-- TFL 2024 -->
+    <div class="year-panel" id="panel-tfl2024">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">34</div><div class="ys-sub">Modest pullback</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$815K</div><div class="ys-sub">$815,037</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$690K</div><div class="ys-sub">$690,000</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$277</div><div class="ys-sub">Median: $245/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">66</div><div class="ys-sub">Stable vs 2023</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$474K–$2.51M</div><div class="ys-sub">Floor elevated</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$898K</div><div class="ys-sub">$898,327</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$775K</div><div class="ys-sub">$774,500</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$318</div><div class="ys-sub">Median: $283/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">40</div><div class="ys-sub">Matched CHL exactly</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,684</div><div class="ys-sub">Consistent sizing</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">61 days</div><div class="ys-sub">Longer close cadence</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2024</div>
+            <div class="jc-row"><span>Median Price</span><strong>$642,500</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$597,285</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>40 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$256</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2024 — Healthy Consolidation.</strong> The median dipped slightly to $690K from $722K — a modest 4.4% correction rather than a meaningful downturn. Volume fell to 34 but remained above pre-2022 levels. The floor has clearly shifted: the lowest 2024 sale was $474,900, meaning entry-level under $500K is essentially gone. Hopkins Point saw two notable sales including a $2.51M transaction at 98 E Rockcrest Cir (5,530 SF). Twin Creeks continued to drive the bulk of transactions in the $500K–$900K range.
+          <div class="year-context tfl-ctx">
+            <strong>2024 — The Convergence Year.</strong> Both lakes posted <strong>identical 40-day median DOM</strong> — a historic synchronization. TFL median pulled back modestly to $774K (-1.7%) while CHL pushed to a new record high of $642K. The premium gap compressed to its narrowest ever: 20.5%. For a buyer debating which market to enter, 2024 offered the clearest apples-to-apples comparison in the dataset.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPS1Ck" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPS1Ck" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2024 Winchester Report on Realtracs
           </a>
@@ -1484,24 +1393,31 @@ body {
       </div>
     </div>
 
-    <!-- W2025 -->
-    <div class="year-panel" id="panel-w2025">
+    <!-- TFL 2025 -->
+    <div class="year-panel" id="panel-tfl2025">
       <div class="year-panel-grid">
         <div>
           <div class="year-stats">
-            <div class="year-stat-box"><div class="ys-label">Sales Count</div><div class="ys-value green">32</div><div class="ys-sub">Closed transactions</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value green">$833K</div><div class="ys-sub">$832,855</div></div>
-            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value green">$707K</div><div class="ys-sub">$706,500</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value green">$273</div><div class="ys-sub">Median: $261/sf</div></div>
-            <div class="year-stat-box"><div class="ys-label">Avg Days on Market</div><div class="ys-value green">69</div><div class="ys-sub">Consistent with 2023–24</div></div>
-            <div class="year-stat-box"><div class="ys-label">Price Range</div><div class="ys-value green" style="font-size:14px;">$375K–$3.05M</div><div class="ys-sub">Hopkins Point estate ceiling</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Sale Price</div><div class="ys-value tfl">$1.00M</div><div class="ys-sub">$1,003,030 — first $1M+ year</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sale Price</div><div class="ys-value tfl">$804K</div><div class="ys-sub">$804,000</div></div>
+            <div class="year-stat-box"><div class="ys-label">Avg Price / SF</div><div class="ys-value tfl">$348</div><div class="ys-sub">Median: $307/sf</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median DOM</div><div class="ys-value tfl">32</div><div class="ys-sub">Faster than CHL in 2025</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median Sq Ft</div><div class="ys-value tfl">2,800</div><div class="ys-sub">Largest avg in dataset</div></div>
+            <div class="year-stat-box"><div class="ys-label">Median List-to-Close</div><div class="ys-value tfl">46 days</div><div class="ys-sub">Normalizing pace</div></div>
+          </div>
+          <div class="compare-box" style="background:var(--chl-light);border-color:#86efac;">
+            <div class="jc-label" style="color:var(--chl);">🌲 Center Hill Lake — 2025</div>
+            <div class="jc-row"><span>Median Price</span><strong>$627,500</strong></div>
+            <div class="jc-row"><span>Avg Price</span><strong>$679,789</strong></div>
+            <div class="jc-row"><span>Median DOM</span><strong>38 days</strong></div>
+            <div class="jc-row"><span>Median $/SF</span><strong>$280</strong></div>
           </div>
         </div>
         <div>
-          <div class="year-context green">
-            <strong>2025 — Recovery and New Ceiling.</strong> The median recovered to $706,500 — a new post-2022 high. The top sale was 51 W Rockcrest Cir (Hopkins Point, 7,901 SF) at $3.05M. Twin Creeks continued delivering the most transactions, with 2025 new construction on Hammock Dr in the $925K–$1.15M range becoming more common. The market has stabilized around 30–35 sales per year with consistent DOM near 70 days — suggesting a normalized, not distressed, pace. The $375K entry (743 Hopkins Ln) represents an increasingly rare sub-$400K opportunity.
+          <div class="year-context tfl-ctx">
+            <strong>2025 — TFL Crosses $1M Average.</strong> The average sale price at Tims Ford crossed $1,000,000 for the first time in 2025 — a milestone for the Middle Tennessee lake market. The median recovered to $804K, a new post-2022 high. $/SF of $307 is an all-time record. Driven by Fanning Bend, Hopkins Point Bluff Dr, and Highland Ridge luxury inventory. The premium gap over CHL settled at 28.1% — still the second-narrowest in the dataset.
           </div>
-          <a class="view-report-btn green" href="https://go.realtracs.com/1hPS427" target="_blank" rel="noopener">
+          <a class="view-report-btn tfl" href="https://go.realtracs.com/1hPS427" target="_blank" rel="noopener">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
             View Full 2025 Winchester Report on Realtracs
           </a>
@@ -1509,121 +1425,145 @@ body {
       </div>
     </div>
 
-  </div><!-- /Winchester slider -->
+  </div><!-- /TFL slider -->
 
-  <!-- ── CURRENTLY CONSIDERING ── -->
-  <div class="active-listings-section">
-    <div class="active-listings-header">
+  <!-- WINCHESTER / TFL SUBDIVISION BREAKDOWN -->
+  <div class="card">
+    <div class="card-header">
       <div>
-        <h2>🏡 Properties Currently Under Consideration</h2>
-        <p>Active listings on Hammock Dr &amp; Bluff Dr · Hopkins Point &amp; Twin Creeks · Winchester, TN · as of May 2026</p>
-      </div>
-      <div>
-        <div class="active-badge">5 Active Listings</div>
+        <div class="card-title">Tims Ford Lake · Top Subdivisions</div>
+        <div class="card-subtitle">Key lakefront communities and their market character · Winchester, TN · Franklin County</div>
       </div>
     </div>
+    <div class="city-grid" style="grid-template-columns: repeat(3,1fr);">
 
-    <div class="listings-grid">
-      <div class="listing-card featured">
-        <div class="listing-address">279 Hammock Drive (Lot 252)</div>
-        <div class="listing-sub">Twin Creeks Village and Resort · 2025 build</div>
-        <div class="listing-price">$899,995</div>
-        <div class="listing-details">
-          <span class="listing-pill">4 BR / 3.5 BA</span>
-          <span class="listing-pill">3,341 SF</span>
-          <span class="listing-pill">2-car garage</span>
-          <span class="listing-pill dom">113 DOM</span>
+      <div class="city-card">
+        <div class="city-name">📍 All TFL Combined</div>
+        <div class="city-stat">
+          <div class="cs-label">2025 Median Sale Price</div>
+          <div class="cs-val">$804,000</div>
+          <div class="cs-sub">Avg crossed $1M · DOM: 32 days · $/SF: $307</div>
         </div>
-        <div class="listing-ppsf">$269/sf list price · 0.26 acres</div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-address">117 Hammock Dr</div>
-        <div class="listing-sub">Twin Creeks Village Ph IV · 2021 build</div>
-        <div class="listing-price">$985,000</div>
-        <div class="listing-details">
-          <span class="listing-pill">4 BR / 3.5 BA</span>
-          <span class="listing-pill">3,034 SF</span>
-          <span class="listing-pill">2-car garage</span>
-          <span class="listing-pill dom">8 DOM</span>
+        <div class="city-stat">
+          <div class="cs-label">Growth Since 2020</div>
+          <div class="cs-val" style="font-size:15px;color:var(--tfl-mid);">+54.6%</div>
+          <div class="cs-sub">$520K → $804K</div>
         </div>
-        <div class="listing-ppsf">$325/sf list price · 0.17 acres</div>
       </div>
 
-      <div class="listing-card">
-        <div class="listing-address">155 Hammock Dr</div>
-        <div class="listing-sub">Twin Creeks Village Ph IV · 2024 build</div>
-        <div class="listing-price">$1,075,000</div>
-        <div class="listing-details">
-          <span class="listing-pill">4 BR / 4.5 BA</span>
-          <span class="listing-pill">3,365 SF</span>
-          <span class="listing-pill">3-car garage</span>
-          <span class="listing-pill dom">62 DOM</span>
+      <div class="city-card highlight-tfl">
+        <div class="city-name">🦅 Twin Creeks Village (All Phases)</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Dominant Volume Driver</div>
+          <div class="cs-sub">Master-planned community with marina and resort amenities; townhomes through lake homes; most active subdivision year over year</div>
         </div>
-        <div class="listing-ppsf">$319/sf list price · 0.18 acres</div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-address">11 Hammock Dr</div>
-        <div class="listing-sub">Twin Creeks Village Ph II · 2022 build</div>
-        <div class="listing-price">$1,100,000</div>
-        <div class="listing-details">
-          <span class="listing-pill">4 BR / 5 BA</span>
-          <span class="listing-pill">3,622 SF</span>
-          <span class="listing-pill">2-car garage</span>
-          <span class="listing-pill dom">83 DOM</span>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$320K–$963K</div>
+          <div class="cs-sub">Extraordinary lot market; extraordinary new construction range</div>
         </div>
-        <div class="listing-ppsf">$304/sf list price · 0.20 acres</div>
       </div>
 
-      <div class="listing-card">
-        <div class="listing-address">686 Bluff Dr</div>
-        <div class="listing-sub">Hopkins Point Ph I · 1997 build · Lakefront</div>
-        <div class="listing-price">$1,300,000</div>
-        <div class="listing-details">
-          <span class="listing-pill">4 BR / 3.5 BA</span>
-          <span class="listing-pill">4,668 SF</span>
-          <span class="listing-pill">2-car garage</span>
-          <span class="listing-pill dom">1 DOM</span>
+      <div class="city-card highlight-tfl">
+        <div class="city-name">🦅 Fanning Bend (All Phases)</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Luxury Enclave</div>
+          <div class="cs-sub">Highest $/SF in the Middle TN lake market; estate-format waterfront; most exclusive address tier</div>
         </div>
-        <div class="listing-ppsf">$278/sf list price · 0.57 acres</div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$460K–$3.5M+</div>
+          <div class="cs-sub">Top-of-market anchor</div>
+        </div>
       </div>
-    </div>
 
-    <div class="listings-summary">
-      <div class="ls-item">
-        <div class="ls-label">Median List Price</div>
-        <div class="ls-value">$1,075,000</div>
+      <div class="city-card">
+        <div class="city-name">📍 Hopkins Point (Ph I & II)</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Established Luxury</div>
+          <div class="cs-sub">Iconic Bluff Dr addresses; large lots; mature landscaping; 2021 ceiling-setter ($4.5M) and 2025 top sale ($3.05M) both here</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$270K–$3.25M</div>
+        </div>
       </div>
-      <div class="ls-item">
-        <div class="ls-label">Avg List Price</div>
-        <div class="ls-value">$1,072,000</div>
-      </div>
-      <div class="ls-item">
-        <div class="ls-label">Avg Price / SF</div>
-        <div class="ls-value">$299/sf</div>
-      </div>
-      <div class="ls-item">
-        <div class="ls-label">Avg Sq Footage</div>
-        <div class="ls-value">3,606 SF</div>
-      </div>
-    </div>
 
-    <div style="padding: 16px 28px 20px; border-top: 1px solid var(--border);">
-      <p style="font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:12px;">
-        <strong style="color:var(--text);">How these compare to the 2025 market:</strong> The median list price among these 5 properties ($1,075,000) sits about <strong>52% above the 2025 Winchester market median ($706,500)</strong> — meaning these are upper-tier picks within this market. At $299/sf avg, they're near the top of the range for this area. Three of the four Hammock Dr listings have been on market 60+ days, suggesting negotiability on price.
-      </p>
-      <a class="view-report-btn green" href="https://go.realtracs.com/1hPSR2h" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12L6 8l3 3 5-6"/><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
-        View All 5 Active Listings on Realtracs
-      </a>
+      <div class="city-card">
+        <div class="city-name">📍 Highland Ridge Cabin Sites</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Character + Appreciation</div>
+          <div class="cs-sub">Old-school lakefront feel; appreciating quickly; draws Nashville buyers seeking authentic lake cabin character</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$285K–$2.3M</div>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">📍 Barefoot Bay</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">New Construction Active</div>
+          <div class="cs-sub">New construction lakefront; very active since 2021; consistent demand from Nashville corridor buyers</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$320K–$1.1M</div>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">📍 Dripping Springs</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Wide Range / Entry</div>
+          <div class="cs-sub">Long-established community; affordable entry to upper-tier in same neighborhood; high repeat-transaction loyalty</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$285K–$1.4M+</div>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">📍 Narrows Cabin Sites / Cline Ridge</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Premium Older Cabins</div>
+          <div class="cs-sub">Cline Ridge Rd commands top dollar; strong Nashville buyer demand; very high $/SF growth trajectory</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$238K–$3M+</div>
+        </div>
+      </div>
+
+      <div class="city-card">
+        <div class="city-name">📍 Ridgeville Sub / Elklore</div>
+        <div class="city-stat">
+          <div class="cs-label">Character</div>
+          <div class="cs-val" style="font-size:14px;">Custom / Top of Market</div>
+          <div class="cs-sub">Large lots; custom homes; Ridgeville peaks above $3.9M; Elklore strong appreciation and character lakefront</div>
+        </div>
+        <div class="city-stat">
+          <div class="cs-label">Price Range</div>
+          <div class="cs-val" style="font-size:14px;">$392K–$3.9M</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-card">
-    <h2>Ready to Explore<br><em>Tims Ford Lake?</em></h2>
-    <p>Whether you're comparing Old Hickory Lake, Tims Ford / Winchester, or any other Greater Nashville-area lakefront market — finding the right home requires someone who knows both markets. Let's talk through your options.</p>
+    <h2>Ready to Explore<br><em>Your Lake Options?</em></h2>
+    <p>Whether you're comparing Center Hill Lake, Tims Ford / Winchester, or any other Greater Nashville-area lake market — finding the right home requires someone who knows both markets. Let's talk through your options.</p>
     <a class="cta-btn" href="https://the-jason-kaczmarski-team-springfield-tn.remax.com/ask/9539cc58d5c28bd9c77d6755120798e0">
       Talk to Jason →
     </a>
@@ -1638,40 +1578,38 @@ body {
   <a href="tel:6153847355">615-384-7355</a>
   <div class="disclaimer">
     Data sourced from Realtracs MLS. Information believed to be accurate but not guaranteed. © 2026 Realtracs, Inc.
-    Old Hickory Lake figures represent closed residential sales with private boat slip, dock, or dock permit · Postal cities: Hendersonville, Gallatin, Old Hickory, Lebanon, and Mount Juliet, TN.
-    Winchester figures represent closed single-family residential sales in Twin Creeks Village and Hopkins Point subdivisions, Winchester, TN (Franklin County) on Tims Ford Lake.
+    Center Hill Lake figures represent closed residential sales across major CHL lakefront subdivisions in DeKalb County, TN.
+    Tims Ford Lake figures represent closed single-family residential sales across Hopkins Point, Twin Creeks Village, Fanning Bend, and all major TFL subdivisions, Winchester, TN (Franklin County).
     Report prepared by Jason Kaczmarski, RE/MAX 1st Choice.
   </div>
 </div>
 
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────
-// All years axis: 2019–2025 (7 points). Winchester starts 2020 so index 0 = null.
-const allYears = ['2019','2020','2021','2022','2023','2024','2025'];
+// Years 2020–2025 (Jordan data starts 2019 but we align to 2020 here for consistency)
+const allYears = ['2020','2021','2022','2023','2024','2025'];
 
-// Old Hickory Lakefront
-const lakeAvgP   = [881258, 900104, 1314497, 1403646, 1341182, 1436731, 1543308];
-const lakeMedP   = [740000, 775000,  993500, 1294950, 1192500, 1250000, 1229000];
-const lakeAvgPSF = [233, 296, 307, 361, 350, 392, 392];
-const lakeMedPSF = [226, 226, 298, 355, 315, 378, 370];
-const lakeDOM    = [63, 42, 21, 21, 43, 46, 57];
-const lakeVol    = [68, 75, 97, 75, 61, 60, 75];
+// Center Hill Lake (CHL) Residential
+const chlAvgP   = [331063, 445152, 550139, 666036, 597285, 679789];
+const chlMedP   = [346000, 411250, 551250, 567500, 642500, 627500];
+const chlAvgPSF = [144, 207, 226, 266, 263, 287];
+const chlMedPSF = [148, 203, 225, 266, 256, 280];
+const chlDOM    = [44, 5, 5, 23, 40, 38];
 
-// Jordan Elementary Zone
-const jordanAvgP   = [799985, 812516, 1116892, 1562163, 1720848, 1867224, 2028142];
-const jordanMedP   = [759648, 733332,  966965, 1457250, 1487000, 1520000, 1640000];
-const jordanAvgPSF = [192, 203, 259, 341, 355, 383, 399];
-const jordanMedPSF = [189, 195, 238, 325, 329, 335, 347];
-const jordanDOM    = [36, 29, 22, 12, 43, 52, 32];
-const jordanVol    = [107, 140, 160, 87, 75, 84, 101];
+// Tims Ford Lake (TFL) Residential
+const tflAvgP   = [577497, 676442, 856707, 925330, 898327, 1003030];
+const tflMedP   = [520000, 564842, 829900, 787500, 774500, 804000];
+const tflAvgPSF = [191, 235, 305, 319, 318, 348];
+const tflMedPSF = [188, 227, 281, 292, 283, 307];
+const tflDOM    = [25, 5, 15, 22, 40, 32];
 
-// Winchester — null for 2019 (no data)
-const winchAvgP   = [null, 617116, 681742, 728043, 815552, 815037, 832855];
-const winchMedP   = [null, 520000, 534750, 664000, 722000, 690000, 706500];
-const winchAvgPSF = [null, 196, 233, 261, 284, 277, 273];
-const winchMedPSF = [null, 186, 213, 255, 253, 245, 261];
-const winchDOM    = [null, 62, 40, 36, 69, 66, 69];
-const winchVol    = [null, 25, 32, 39, 38, 34, 32];
+// Jordan Elementary Zone (from original report — 2020–2025 slice)
+const jordanAvgP   = [812516, 1116892, 1562163, 1720848, 1867224, 2028142];
+const jordanMedP   = [733332,  966965, 1457250, 1487000, 1520000, 1640000];
+const jordanAvgPSF = [203, 259, 341, 355, 383, 399];
+const jordanMedPSF = [195, 238, 325, 329, 335, 347];
+const jordanDOM    = [29, 22, 12, 43, 52, 32];
+const jordanVol    = [140, 160, 87, 75, 84, 101];
 
 // ── UTILS ─────────────────────────────────────────────────────────────────
 function fmtK(v) {
@@ -1683,75 +1621,81 @@ function fmtK(v) {
 // ── CHART STATE ───────────────────────────────────────────────────────────
 let currentChart = null;
 let currentType  = 'price';
-let currentView  = 'lake';
+let currentView  = 'chl';
 
-// Dataset definitions per view per metric
+const chlColor      = '#1e6b3c';
+const chlColorLight = 'rgba(30,107,60,0.08)';
+const tflMidColor   = '#2563eb';
+const tflColorLight = 'rgba(37,99,235,0.08)';
+const jordanColor   = '#1f4fa3';
+const jordanAlt     = '#f0b429';
+
 const chartConfigs = {
   price: {
-    lake: [
-      { label:'OHL Avg',    data:lakeAvgP,   borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
-      { label:'OHL Median', data:lakeMedP,   borderColor:'#0e7490', backgroundColor:'transparent',           borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
+    chl: [
+      { label:'CHL Avg',    data:chlAvgP,  borderColor:chlColor,    backgroundColor:chlColorLight, borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'CHL Median', data:chlMedP,  borderColor:chlColor,    backgroundColor:'transparent',  borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
     jordan: [
-      { label:'Jordan Avg',    data:jordanAvgP,  borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
-      { label:'Jordan Median', data:jordanMedP,  borderColor:'#f0b429', backgroundColor:'transparent',          borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
+      { label:'Jordan Avg',    data:jordanAvgP, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'Jordan Median', data:jordanMedP, borderColor:jordanAlt,   backgroundColor:'transparent',           borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
-    winch: [
-      { label:'Winchester Avg',    data:winchAvgP,  borderColor:'#166534', backgroundColor:'rgba(22,101,52,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35, spanGaps:false },
-      { label:'Winchester Median', data:winchMedP,  borderColor:'#16a34a', backgroundColor:'transparent',          borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3], spanGaps:false }
+    tfl: [
+      { label:'TFL Avg',    data:tflAvgP,  borderColor:tflMidColor, backgroundColor:tflColorLight, borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'TFL Median', data:tflMedP,  borderColor:tflMidColor, backgroundColor:'transparent',  borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
     all: [
-      { label:'OHL Median',        data:lakeMedP,   borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.07)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
-      { label:'Jordan Median',     data:jordanMedP, borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.07)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35, borderDash:[6,3] },
-      { label:'Winchester Median', data:winchMedP,  borderColor:'#16a34a', backgroundColor:'rgba(22,163,74,0.07)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35, borderDash:[4,4], spanGaps:false }
+      { label:'CHL Median',    data:chlMedP,    borderColor:chlColor,    backgroundColor:'rgba(30,107,60,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 },
+      { label:'Jordan Median', data:jordanMedP, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[6,3] },
+      { label:'TFL Median',    data:tflMedP,    borderColor:tflMidColor, backgroundColor:'rgba(37,99,235,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[4,4] }
     ],
     yFormat: v => fmtK(v),
     tooltipFormat: v => '$'+Math.round(v).toLocaleString()
   },
   ppsf: {
-    lake: [
-      { label:'OHL Avg $/SF',    data:lakeAvgPSF,  borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
-      { label:'OHL Median $/SF', data:lakeMedPSF,  borderColor:'#0e7490', backgroundColor:'transparent',           borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
+    chl: [
+      { label:'CHL Avg $/SF',    data:chlAvgPSF,    borderColor:chlColor,    backgroundColor:chlColorLight, borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'CHL Median $/SF', data:chlMedPSF,    borderColor:chlColor,    backgroundColor:'transparent',  borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
     jordan: [
-      { label:'Jordan Avg $/SF',    data:jordanAvgPSF,  borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
-      { label:'Jordan Median $/SF', data:jordanMedPSF,  borderColor:'#f0b429', backgroundColor:'transparent',          borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
+      { label:'Jordan Avg $/SF',    data:jordanAvgPSF, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'Jordan Median $/SF', data:jordanMedPSF, borderColor:jordanAlt,   backgroundColor:'transparent',           borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
-    winch: [
-      { label:'Winchester Avg $/SF',    data:winchAvgPSF,  borderColor:'#166534', backgroundColor:'rgba(22,101,52,0.08)', borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35, spanGaps:false },
-      { label:'Winchester Median $/SF', data:winchMedPSF,  borderColor:'#16a34a', backgroundColor:'transparent',          borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3], spanGaps:false }
+    tfl: [
+      { label:'TFL Avg $/SF',    data:tflAvgPSF,    borderColor:tflMidColor, backgroundColor:tflColorLight, borderWidth:2.5, pointRadius:5, fill:true,  tension:0.35 },
+      { label:'TFL Median $/SF', data:tflMedPSF,    borderColor:tflMidColor, backgroundColor:'transparent',  borderWidth:2.5, pointRadius:5, fill:false, tension:0.35, borderDash:[6,3] }
     ],
     all: [
-      { label:'OHL Median $/SF',        data:lakeMedPSF,   borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 },
-      { label:'Jordan Median $/SF',     data:jordanMedPSF, borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[6,3] },
-      { label:'Winchester Median $/SF', data:winchMedPSF,  borderColor:'#16a34a', backgroundColor:'rgba(22,163,74,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[4,4], spanGaps:false }
+      { label:'CHL Median $/SF',    data:chlMedPSF,    borderColor:chlColor,    backgroundColor:'rgba(30,107,60,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 },
+      { label:'Jordan Median $/SF', data:jordanMedPSF, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[6,3] },
+      { label:'TFL Median $/SF',    data:tflMedPSF,    borderColor:tflMidColor, backgroundColor:'rgba(37,99,235,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[4,4] }
     ],
     yFormat: v => v == null ? '' : '$'+v+'/sf',
     tooltipFormat: v => '$'+v.toFixed(0)+'/sf'
   },
   dom: {
-    lake:   [{ label:'OHL Avg DOM',        data:lakeDOM,   borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.08)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 }],
-    jordan: [{ label:'Jordan Avg DOM',     data:jordanDOM, borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.08)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 }],
-    winch:  [{ label:'Winchester Avg DOM', data:winchDOM,  borderColor:'#166534', backgroundColor:'rgba(22,101,52,0.08)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, spanGaps:false }],
+    chl:    [{ label:'CHL Median DOM',    data:chlDOM,    borderColor:chlColor,    backgroundColor:chlColorLight,              borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 }],
+    jordan: [{ label:'Jordan Avg DOM',    data:jordanDOM, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.08)',      borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 }],
+    tfl:    [{ label:'TFL Median DOM',    data:tflDOM,    borderColor:tflMidColor, backgroundColor:tflColorLight,              borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 }],
     all: [
-      { label:'OHL Avg DOM',        data:lakeDOM,   borderColor:'#0e7490', backgroundColor:'rgba(14,116,144,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 },
-      { label:'Jordan Avg DOM',     data:jordanDOM, borderColor:'#1f4fa3', backgroundColor:'rgba(31,79,163,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[6,3] },
-      { label:'Winchester Avg DOM', data:winchDOM,  borderColor:'#16a34a', backgroundColor:'rgba(22,163,74,0.07)', borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[4,4], spanGaps:false }
+      { label:'CHL Median DOM',    data:chlDOM,    borderColor:chlColor,    backgroundColor:'rgba(30,107,60,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35 },
+      { label:'Jordan Avg DOM',    data:jordanDOM, borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[6,3] },
+      { label:'TFL Median DOM',    data:tflDOM,    borderColor:tflMidColor, backgroundColor:'rgba(37,99,235,0.07)',  borderWidth:2.5, pointRadius:5, fill:true, tension:0.35, borderDash:[4,4] }
     ],
     yFormat: v => v == null ? '' : v+' days',
     tooltipFormat: v => v+' days'
   },
   volume: {
-    lake:   [{ label:'OHL Sales',        data:lakeVol,   backgroundColor:allYears.map(()=>'rgba(14,116,144,0.75)'), borderColor:'#0e7490', borderWidth:2, borderRadius:6, type:'bar' }],
-    jordan: [{ label:'Jordan Zone Sales',data:jordanVol, backgroundColor:allYears.map(()=>'rgba(31,79,163,0.75)'), borderColor:'#1f4fa3', borderWidth:2, borderRadius:6, type:'bar' }],
-    winch:  [{ label:'Winchester Sales', data:winchVol,  backgroundColor:allYears.map(()=>'rgba(22,101,52,0.75)'), borderColor:'#166534', borderWidth:2, borderRadius:6, type:'bar' }],
+    chl:    [{ label:'CHL Median Price',    data:chlMedP,    borderColor:chlColor,    backgroundColor:'rgba(30,107,60,0.7)',  borderWidth:2, borderRadius:6, type:'bar' }],
+    jordan: [{ label:'Jordan Sales Volume', data:jordanVol,  borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.7)',  borderWidth:2, borderRadius:6, type:'bar' }],
+    tfl:    [{ label:'TFL Median Price',    data:tflMedP,    borderColor:tflMidColor, backgroundColor:'rgba(37,99,235,0.7)',  borderWidth:2, borderRadius:6, type:'bar' }],
     all: [
-      { label:'OHL Sales',         data:lakeVol,   backgroundColor:allYears.map(()=>'rgba(14,116,144,0.7)'),  borderColor:'#0e7490', borderWidth:2, borderRadius:4, type:'bar' },
-      { label:'Jordan Zone Sales', data:jordanVol, backgroundColor:allYears.map(()=>'rgba(31,79,163,0.6)'),  borderColor:'#1f4fa3', borderWidth:2, borderRadius:4, type:'bar' },
-      { label:'Winchester Sales',  data:winchVol,  backgroundColor:allYears.map(()=>'rgba(22,101,52,0.6)'),  borderColor:'#166534', borderWidth:2, borderRadius:4, type:'bar' }
+      { label:'CHL Median Price',    data:chlMedP,    borderColor:chlColor,    backgroundColor:'rgba(30,107,60,0.7)',  borderWidth:2, borderRadius:4, type:'bar' },
+      { label:'Jordan Sales Volume', data:jordanVol,  borderColor:jordanColor, backgroundColor:'rgba(31,79,163,0.6)',  borderWidth:2, borderRadius:4, type:'bar' },
+      { label:'TFL Median Price',    data:tflMedP,    borderColor:tflMidColor, backgroundColor:'rgba(37,99,235,0.6)',  borderWidth:2, borderRadius:4, type:'bar' }
     ],
-    yFormat: v => v == null ? '' : v,
-    tooltipFormat: v => v+' sales'
+    yFormat: v => v == null ? '' : v >= 10000 ? fmtK(v) : v,
+    tooltipFormat: v => v >= 10000 ? '$'+Math.round(v).toLocaleString() : v+' sales'
   }
 };
 
@@ -1782,8 +1726,7 @@ function buildChart(type) {
             label: ctx => {
               if (ctx.parsed.y === null) return null;
               return ' '+ctx.dataset.label+': '+cfg.tooltipFormat(ctx.parsed.y);
-            },
-            afterBody: items => items[0]?.label==='2019' && currentView!=='lake' && currentView!=='jordan' ? ['⚠ Winchester data begins 2020'] : []
+            }
           }
         }
       },
@@ -1804,26 +1747,26 @@ function switchChart(type, e) {
 
 function toggleDataset(view) {
   currentView = view;
-  const btnMap = { lake:'lake', jordan:'jordan', winch:'winch', all:'all' };
-  ['lake','jordan','winch','all'].forEach(v => {
+  const allViews = ['chl','jordan','tfl','all'];
+  allViews.forEach(v => {
     const btn = document.getElementById('tog-'+v);
     if (!btn) return;
-    if (v === view) { btn.classList.remove('inactive'); btn.classList.add(btnMap[v]); }
-    else            { btn.classList.remove(btnMap[v]); btn.classList.add('inactive'); }
+    if (v === view) { btn.classList.remove('inactive'); btn.classList.add(v); }
+    else            { btn.classList.remove(v); btn.classList.add('inactive'); }
   });
   buildChart(currentType);
 }
 
-function showYear(year, e) {
-  document.querySelectorAll('[id^="panel-2"]').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.year-tab:not(.winch-tab)').forEach(t => t.classList.remove('active'));
+function showCHLYear(year, e) {
+  document.querySelectorAll('[id^="panel-chl"]').forEach(p => p.classList.remove('active'));
+  e.currentTarget.closest('.year-tabs').querySelectorAll('.year-tab:not(.tfl-tab)').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-'+year).classList.add('active');
   e.currentTarget.classList.add('active');
 }
 
-function showWinchYear(year, e) {
-  document.querySelectorAll('[id^="panel-w"]').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.year-tab.winch-tab').forEach(t => t.classList.remove('active'));
+function showTFLYear(year, e) {
+  document.querySelectorAll('[id^="panel-tfl"]').forEach(p => p.classList.remove('active'));
+  e.currentTarget.closest('.year-tabs').querySelectorAll('.year-tab.tfl-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-'+year).classList.add('active');
   e.currentTarget.classList.add('active');
 }
